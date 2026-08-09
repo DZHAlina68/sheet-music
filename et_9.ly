@@ -1,23 +1,29 @@
 \include "common.ily"
-#(set-global-staff-size 23)
+#(set-global-staff-size 32)
 
 upper = \relative c'' {
-  \key c \major \time 4/4 \tempo "Не спеша"
-  e16^4 (d c b) r4 r4 a4^1 | d16^4 (c b a) r4 r4 g4^1 |
-  c16^4 (b a g) r4 r4 f4^1 | b16^4 (a g f) r4 r4 e4 |  
-  \break
-  r4 g8^1 c a4 r4 | r4 f8^2 a g4 r4 |
-  e16^2 (f e d) r4 f4^3 r4 | d16^2 (e d c) r4 r4 c'4^5 | \bar "|."
+  \key c \major \numericTimeSignature \time 3/4
+  \tempo "Andante cantabile (Спокойно, певуче)"
+  % system 1
+  g2-3\mp( f4 | e4 g4-2 c4-5 | b a b | c g^2 e^1) | \break
+  % system 2
+  g2^3 ( f4 | e g^2 c^5 | b a b | c2.) | \break
+  % system 3
+  d4^5( g,4 ) g4 | aes4^2 aes4 aes4^2 | g4^1 (a!4 b4 | c2.) | \break
+  % system 4
+  g2^3 ( f4 | e g c | b a b | c2.) \bar "|."
 }
 
-lower = \relative c' {
-  \clef treble \key c \major \time 4/4
-  r4 a'8_2 g f4 r4 | r4 g8_2 f e4 r4 |
-  r4 f8_2 e d4 r4 | r4 e8_2 d c4 r4 |
-  \break
-  c16_4 (d e f) r4 r4 f4 | b,16_4 (c d e) r4 r4 e4 |
-  r4 c8_2 a r4 d4_1 | r4 b8_2 g c4_1 r4 | \bar "|."
-
+lower = \relative c {
+  \clef bass \key c \major \numericTimeSignature \time 3/4
+  % system 1 : 2 bars rest, then canon (upper, octave lower, 2 bars later)
+  R2. | R2. | g'2_3 ( f4 | e4 g4 c4) | \break
+  % system 2
+  b4( a b | c g_3 e) | g2_3 (f4 | e g c | \break
+  % system 3
+  b4 a b | c2.) | d4 (g,4_4 ) g4 | aes4_3 aes aes_3 | \break
+  % system 4
+  g4_4( a! b | c2.) | g2_3 ( f4 | e2.) \bar "|."
 }
 
 \score {
